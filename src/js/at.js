@@ -1,3 +1,9 @@
+function targetPageParams() {
+  return {
+    "at_property": "adobeintmmeewis"
+  };
+}
+
 
 //No Custom JavaScript
 /**

@@ -4,6 +4,23 @@ function targetPageParams() {
   };
 }
 
+function targetView() {
+  var viewName = window.location.hash; 
+  // or use window.location.pathName if router works
+  // on path and not hash
+  
+  viewName = viewName || 'home'; // view name cannot be empty
+  // Sanitize viewName to get rid of any trailing symbols 
+  // derived from URL
+  if (viewName.startsWith('#') || viewName.startsWith('/')) {
+    viewName = viewName.substr(1);
+  }
+  // Validate if the Target Libraries are available on your website
+  if (typeof adobe != 'undefined' && adobe.target 
+      && typeof adobe.target.triggerView === 'function') {
+    adobe.target.triggerat_propertyView(viewName);
+  }
+}
 
 //No Custom JavaScript
 /**
